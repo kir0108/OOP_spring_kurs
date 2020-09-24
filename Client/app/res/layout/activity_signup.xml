@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    tools:context=".SignupActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="200dp"
+        android:layout_height="190dp"
+        android:background="@drawable/budget"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/text_login_up"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:drawableLeft="@drawable/ic_baseline_adb_24"
+        android:background="#2E2E2E"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+    <EditText
+        android:id="@+id/text_pwd_up_1"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_baseline_https_24"
+        android:inputType="textPassword"
+        android:background="#2E2E2E"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/text_pwd_up_2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_baseline_https_24"
+        android:inputType="textPassword"
+        android:background="#2E2E2E"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="@string/SignUp"
+        android:layout_gravity="center"
+        android:background="#2E2E2E"
+        android:textColor="@color/edittext"/>
+
+    <TextView
+        android:id="@+id/button_to_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="230dp"
+        android:clickable="true"
+        android:text="@string/Have"/>
+
+</FrameLayout>

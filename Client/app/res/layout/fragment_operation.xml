@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_operation"
+    android:layout_width="280dp"
+    android:layout_height="430dp"
+    android:background="@color/back"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Article"
+        android:textColor="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/article"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/frame_edittext"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15dp"
+        android:hint="Name"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Debit"
+        android:textColor="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/debit"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/frame_edittext"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15dp"
+        android:hint="0.0"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Credit"
+        android:textColor="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/credit"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/frame_edittext"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15dp"
+        android:hint="0.0"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Amount"
+        android:textColor="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/frame_edittext"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15dp"
+        android:hint="0.0"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Date"
+        android:textColor="@color/edittext"/>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/frame_edittext"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="15dp"
+        android:hint="dd.mm.yy"
+        android:textColor="@color/edittext"
+        android:textColorHint="@color/edittext"/>
+
+    <FrameLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/create"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Create"
+            android:visibility="invisible"
+            android:background="#2E2E2E"
+            android:textColor="@color/edittext"/>
+
+        <Button
+            android:id="@+id/save"
+            android:text="Save"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#2E2E2E"
+            android:textColor="@color/edittext"/>
+    </FrameLayout>
+
+</LinearLayout>
