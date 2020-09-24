@@ -348,6 +348,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public void editOperation(Operation operation) {
+
         Call<JsonElement> call = Network.getInstance().getJsonApi().editOperation(operation.getId(), operation);
 
         call.enqueue(new Callback<JsonElement>() {
@@ -362,13 +363,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
-    public void removePos(int pos){
-        dataAll.remove(data.get(pos));
-        data.remove(pos);
-        numberItems = data.size();
-        notifyDataSetChanged();
-    }
-
     public void deleteOperation(final int pos){
 
         Call<JsonElement> call = Network.getInstance().getJsonApi().deleteOperation(data.get(pos).getId());
@@ -376,13 +370,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                removePos(pos);
             }
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast toast = Toast.makeText(context, "Cant connect to server", Toast.LENGTH_SHORT);
-                toast.show();
+                getAllOperations();
             }
         });
     }

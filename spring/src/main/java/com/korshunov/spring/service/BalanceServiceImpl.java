@@ -30,7 +30,7 @@ public class BalanceServiceImpl implements BalanceService{
         try {
             balanceRepo.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new BalanceNotFoundException("Article not found");
+            throw new BalanceNotFoundException("Balance not found");
         }
     }
 
@@ -45,7 +45,7 @@ public class BalanceServiceImpl implements BalanceService{
         if (optionalBalance.isPresent()){
             return optionalBalance.get();
         } else {
-            throw new BalanceNotFoundException("Article not found");
+            throw new BalanceNotFoundException("Balance not found");
         }
     }
 }

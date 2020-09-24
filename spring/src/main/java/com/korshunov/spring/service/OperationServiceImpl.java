@@ -32,7 +32,7 @@ public class OperationServiceImpl implements OperationService{
         try {
             operationRepo.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new OperationNotFoundException("Article not found");
+            throw new OperationNotFoundException("Operation not found");
         }
     }
 
@@ -47,7 +47,7 @@ public class OperationServiceImpl implements OperationService{
         if (optionalOperation.isPresent()){
             return optionalOperation.get();
         } else {
-            throw new OperationNotFoundException("Article not found");
+            throw new OperationNotFoundException("Operation not found");
         }
     }
 
@@ -55,33 +55,27 @@ public class OperationServiceImpl implements OperationService{
     public List<Operation> findOperationWithArticle(Long id) {
         List<Operation> operationList = (List<Operation>) operationRepo.findAll();
         List<Operation> list = new ArrayList<>();
-        if (!operationList.isEmpty()){
-            for (Operation operation: operationList){
-                if (operation.getArticle().getId().equals(id)){
-                    list.add(operation);
-                }
-            }
 
-            return list;
-        } else {
-            return null;
+        for (Operation operation: operationList){
+            if (operation.getArticle().getId().equals(id)){
+                list.add(operation);
+            }
         }
+
+        return list;
     }
 
     @Override
     public List<Operation> findByFilter(String filter) {
         List<Operation> operationList = (List<Operation>) operationRepo.findAll();
         List<Operation> operations = new ArrayList<>();
-        if (!operationList.isEmpty()){
-            for (Operation operation: operationList){
-                if (operation.toString().contains(filter)){
-                    operations.add(operation);
-                }
-            }
 
-            return operations;
-        } else {
-            return null;
+        for (Operation operation: operationList){
+            if (operation.toString().contains(filter)){
+                operations.add(operation);
+            }
         }
+
+        return operations;
     }
 }
