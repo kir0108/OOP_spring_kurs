@@ -43,28 +43,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Button saveButton;
     private Button createButton;
     private int pos;
+    public String filterString = "";
 
-    public RecyclerViewAdapter(List<Operation> listOp) {
+    public RecyclerViewAdapter(Context mContext) {
         numberItems = 0;
-        if (!listOp.isEmpty()) {
-            numberItems = listOp.size();
-        }
 
         dataAll.clear();
-        dataAll.addAll(listOp);
         data.clear();
-        data.addAll(dataAll);
-    }
 
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
-        int layoutIdForList = R.layout.item_operation;
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View view = inflater.inflate(layoutIdForList, parent, false);
-        final MyViewHolder myViewHolder = new MyViewHolder(view);
+        context = mContext;
 
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.fragment_operation);
@@ -160,6 +147,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
             }
         });
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        int layoutIdForList = R.layout.item_operation;
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        View view = inflater.inflate(layoutIdForList, parent, false);
+        final MyViewHolder myViewHolder = new MyViewHolder(view);
+
 
         myViewHolder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -370,10 +368,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+
             }
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable t) {
+                data.remove(pos);
                 getAllOperations();
             }
         });
@@ -403,9 +403,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     }
                 }
 
-                data.clear();
-                data.addAll(dataAll);
-                numberItems = dataAll.size();
+                if (filterString.equals("")) {
+                    data.clear();
+                    data.addAll(dataAll);
+                }
+
+                numberItems = data.size();
                 notifyDataSetChanged();
             }
 

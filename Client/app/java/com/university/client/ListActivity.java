@@ -30,7 +30,6 @@ public class ListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
-    private List<Operation> operationList = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
     private FloatingActionButton addOperationButton;
 
@@ -47,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
 
-        recyclerViewAdapter = new RecyclerViewAdapter(operationList);
+        recyclerViewAdapter = new RecyclerViewAdapter(this);
         recyclerView.setAdapter(recyclerViewAdapter);
 
         recyclerViewAdapter.getAllOperations();
@@ -112,6 +111,7 @@ public class ListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                recyclerViewAdapter.filterString = newText;
                 recyclerViewAdapter.getFilter().filter(newText);
                 return false;
             }
